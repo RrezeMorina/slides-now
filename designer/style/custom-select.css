@@ -1,0 +1,74 @@
+.custom-select {
+    position: relative;
+}
+
+.custom-select select {
+    display: none;
+}
+
+.select-selected {
+    display: flex;
+    align-items: center;
+    min-width: 80px;
+    min-height: 40px;
+    background-color: #f8f9fa;
+}
+
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 17px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #333333 transparent transparent transparent;
+}
+
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #333333 transparent;
+    top: 7px;
+}
+
+.select-selected {
+    color: #333333;
+    padding: 8px 16px;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: #F8F9FA;
+    border-radius: 5px;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.09);
+}
+
+.select-items {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.09);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.select-items div {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.select-items {
+    position: absolute;
+    background-color: #f8f9fa;
+    bottom: 120%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    transition: background-color .1s ease-in-out;
+    -moz-transition: background-color .1s ease-in-out;
+    -webkit-transition: background-color .1s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.1);
+}
