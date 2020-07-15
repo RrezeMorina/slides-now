@@ -67,18 +67,6 @@ function changeZoom() {
     $("#designer-0").css("padding-right", "0px");
     $("#designer-0").css("padding-top", "0px");
     $("#designer-0").css("padding-bottom", "0px");
-    var parentWidth = $("#designer-container").width();
-    var parentHeight = $("#designer-container").height();
-    var paddingLeft = (parentWidth - width) / 2;
-    var paddingTop = (parentHeight - height) / 2;
-    if (paddingLeft > 0) {
-        $("#designer-0").css("padding-left", paddingLeft + "px");
-        $("#designer-0").css("padding-right", paddingLeft + "px");
-    }
-    if (paddingTop > 0) {
-        $("#designer-0").css("padding-top", paddingTop + "px");
-        $("#designer-0").css("padding-bottom", paddingTop + "px");
-    }
     _STAGE.scaleX(_ZOOM / 100);
     _STAGE.scaleY(_ZOOM / 100);
     _STAGE.draw();
@@ -252,6 +240,7 @@ function getTemplates(keyword) {
             xhr.setRequestHeader("Authorization", "Bearer " + _TOKEN);
         },
         success: function (data, textStatus, jQxhr) {
+            $("#search-term").focus();
             $('#template-menu').empty();
             var html = "";
             $.each(data.List, function (index, value) {
@@ -661,9 +650,13 @@ $(document).ready(function () {
             //Templates
             getAllTemplates();
             //Search templates event
+            let timeout;
             $('#search-term').on('input', function () {
                 var keyword = $('#search-term').val();
-                getTemplates(keyword);
+                clearTimeout(timeout);
+                timeout = setTimeout(() => {
+                    getTemplates(keyword);
+                }, 500)
             });
         },
         error: function (jqXhr, textStatus, errorThrown) {
