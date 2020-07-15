@@ -312,7 +312,6 @@ button:focus, input:focus, select:focus, textarea:focus {
 }
 
 .search-input {
-    font-family: 'Avenir LT Std', sans-serif;
     font-size: 20px;
     padding-left: 38px;
     background-color: #F8F9FA;
@@ -847,7 +846,24 @@ button:focus, input:focus, select:focus, textarea:focus {
 .coming-message-button:hover .coming-text {
     visibility: visible;
 }
+.privacy-policy{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 12px;
+    right: 50px;
 
+
+}
+.privacy-policy .pp-link{
+text-decoration: none;
+    color: #109fff;
+    font-size: 16px;
+}
+.pp-link:hover{
+    color: #109fff;
+    opacity: 0.8;
+}
 
 @media screen and ( max-width: 1480px ) {
     .subscribe-content {
