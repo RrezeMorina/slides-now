@@ -608,7 +608,7 @@ function downloadPng() {
         transformer.destroy();
     });
     _STAGE.draw();
-    var dataURL = _STAGE.toDataURL({ pixelRatio: 3 });
+    var dataURL = _STAGE.toDataURL({ pixelRatio: 1 });
     var link = document.createElement('a');
     link.download = "canvas.png";
     link.href = dataURL;
@@ -627,7 +627,7 @@ function downloadPdf() {
         format = "p";
     }
     var pdf = new jsPDF(format, "px", [_STAGE.width(), _STAGE.height()]);
-    pdf.addImage(_STAGE.toDataURL({ pixelRatio: 3 }), 0, 0, _STAGE.width(), _STAGE.height());
+    pdf.addImage(_STAGE.toDataURL({ pixelRatio: 1 }), 0, 0, _STAGE.width(), _STAGE.height());
     pdf.save('canvas.pdf');
 }
 $(document).ready(function () {
