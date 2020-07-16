@@ -615,7 +615,11 @@ function downloadPng() {
         transformer.destroy();
     });
     _STAGE.draw();
-    var dataURL = _STAGE.toDataURL({ pixelRatio: 1 });
+    var stageClone = _STAGE.clone();
+    stageClone.scaleX(1);
+    stageClone.scaleY(1);
+    var dataURL = stageClone.toDataURL({ pixelRatio: 1 });
+    stageClone.destroy();
     var link = document.createElement('a');
     link.download = "canvas.png";
     link.href = dataURL;
@@ -629,12 +633,17 @@ function downloadPdf() {
         transformer.destroy();
     });
     _STAGE.draw();
+    var stageClone = _STAGE.clone();
+    stageClone.scaleX(1);
+    stageClone.scaleY(1);
+    var dataURL = stageClone.toDataURL({ pixelRatio: 1 });
     var format = "l";
-    if (_STAGE.width() <= _STAGE.height()) {
+    if (stageClone.width() <= stageClone.height()) {
         format = "p";
     }
-    var pdf = new jsPDF(format, "px", [_STAGE.width(), _STAGE.height()]);
-    pdf.addImage(_STAGE.toDataURL({ pixelRatio: 1 }), 0, 0, _STAGE.width(), _STAGE.height());
+    var pdf = new jsPDF(format, "px", [stageClone.width(), stageClone.height()]);
+    pdf.addImage(dataURL, 0, 0, stageClone.width(), stageClone.height());
+    stageClone.destroy();
     pdf.save('canvas.pdf');
 }
 $(document).ready(function () {
