@@ -245,7 +245,7 @@ function getTemplates(keyword) {
             var html = "";
             $.each(data.List, function (index, value) {
                 html += '<div id="template-' + value.Id + '" class="template-item" onclick="getPages(this);">';
-                html += '<p class="template-item-title">' + value.Name + '</p>';
+                html += '<p class="template-item-title">' + value.Code + ' > ' + value.Name + ' > ' + value.Description + '</p>';
                 html += '<img src="' + value.CoverUrl + '" alt="template-img" class="template-item-img">';
                 html += '</div>';
             });
@@ -280,7 +280,7 @@ function getAllTemplates() {
             var html = "";
             $.each(data.List, function (index, value) {
                 html += '<div id="template-' + value.Id + '" class="template-item" onclick="getPages(this);">';
-                html += '<p class="template-item-title">' + value.Name + '</p>';
+                html += '<p class="template-item-title">' + value.Code + ' > ' + value.Name + ' > ' + value.Description + '</p>';
                 html += '<img src="' + value.CoverUrl + '" alt="template-img" class="template-item-img">';
                 html += '</div>';
             });
@@ -303,7 +303,7 @@ function getPages(element) {
     initializeStage();
     var id = $(element).prop("id");
     if (id.startsWith("template")) {
-        var url = _BASEURL + "slidesnow/page?allrows=true&orderby=Order&Fields=Id&Fields=Name&Fields=CoverUrl";
+        var url = _BASEURL + "slidesnow/page?allrows=true&orderby=Order&Fields=Id&Fields=Name&Fields=CoverUrl&Fields=TemplateText";
         var where = "TemplateId=" + id.split('-')[1];
         url += "&Where=" + where;
         $.ajax({
@@ -319,7 +319,7 @@ function getPages(element) {
                 var html = "";
                 $.each(data.List, function (index, value) {
                     html += '<div id="page-' + value.Id + '" class="template-item" onclick="getPages(this);">';
-                    html += '<p class="template-item-title">' + value.Name + '</p>';
+                    html += '<p class="template-item-title">' + value.TemplateText + ' > ' + value.Name + '</p>';
                     html += '<img src="' + value.CoverUrl + '" alt="template-img" class="template-item-img">';
                     html += '</div>';
                 });
@@ -351,8 +351,15 @@ function getPages(element) {
                 xhr.setRequestHeader("Authorization", "Bearer " + _TOKEN);
             },
             success: function (data, textStatus, jQxhr) {
-                $(".presentation-title").text(data.TemplateText);
-                $(".presentation-title-slide").text(data.Name);
+                if (data.TemplateText.length > 0) {
+                    var array = data.TemplateText.split(' > ');
+                    $(".presentation-title").text(array[0] + ' - ' + array[1]);
+                    $(".presentation-title-slide").text(array[2] + ' - ' + data.Name);
+                }
+                else {
+                    $(".presentation-title").text("");
+                    $(".presentation-title-slide").text(data.Name);
+                }
                 createStage(data);
             },
             error: function (jqXhr, textStatus, errorThrown) {
