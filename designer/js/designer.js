@@ -2,6 +2,7 @@
 var sideNavExpand = $("#sidenav-expand");
 var designerContainer = $("#designer-container");
 var subscribeDialog = $("#subscribe-dialog");
+
 function openSideNav() {
     sideNavExpand.removeClass("sidenav-hidden");
     sideNavExpand.addClass("sidenav-show");
@@ -33,15 +34,17 @@ function subscribe() {
 function closeSubscribeDialog() {
     $(subscribeDialog).css("display", "none");
 }
-function showDialog() {
+(function showDialog() {
     // uncomment lines below to stop showing subscribed popup-dialog after client is subscribed
     var isSubscribed = localStorage.getItem('subscribed');
     if (isSubscribed === 'true') {
         $(subscribeDialog).css("display", "none");
+        console.log("test")
     } else {
         $(subscribeDialog).css("display", "flex");
     }
-}
+})()
+
 //ADDED
 var _BASEURL = "https://firmsconsultingapi.azurewebsites.net/api/";
 var _TOKEN = null;
@@ -228,7 +231,7 @@ function initializeStage() {
 }
 function getTemplates(keyword) {
     initializeStage();
-    var url = _BASEURL + "slidesnow/template?allrows=true&orderby=Order";
+    var url = _BASEURL + "Fsnow/template?allrows=true&orderby=Order";
     var where = "Code.Contains(\"" + keyword + "\") OR Name.Contains(\"" + keyword + "\") OR Description.Contains(\"" + keyword + "\")";
     url += "&Where=" + where;
     $.ajax({

@@ -1,12 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9628175e-bc50-40fd-9d5c-d227bc4aa9ac" name="Default Changelist" comment="">
+    <list default="true" id="9628175e-bc50-40fd-9d5c-d227bc4aa9ac" name="Default Changelist" comment="fix the hyperlink logo,and don't show popup again after access">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designer.html" beforeDir="false" afterPath="$PROJECT_DIR$/designer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designer/js/designer.js" beforeDir="false" afterPath="$PROJECT_DIR$/designer/js/designer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designer/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/designer/style/style.css" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,26 +42,21 @@
   </component>
   <component name="ProjectId" id="1ed5A8MKnbkJsd8MmcKXlKm30sH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/mns" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/slide-snow" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\LP\Documents\Projects\slides-now\designer\assets\images" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -50,6 +70,8 @@
       <updated>1594638482195</updated>
       <workItem from="1594638483301" duration="2517000" />
       <workItem from="1594799979500" duration="6073000" />
+      <workItem from="1595861659959" duration="2263000" />
+      <workItem from="1595941169057" duration="6335000" />
     </task>
     <task id="LOCAL-00001" summary="Fix the search bar and padding in designer-container">
       <created>1594800389753</created>
@@ -62,21 +84,49 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix the search bar and padding in designer-container" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix the search bar and padding in designer-container" />
+    <MESSAGE value="fix the hyperlink logo,and don't show popup again after access" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix the hyperlink logo,and don't show popup again after access" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="135" key="FileChooserDialogImpl" timestamp="1595945160136">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="421" y="135" key="FileChooserDialogImpl/0.0.1280.760/2560.0.1920.1040@0.0.1280.760" timestamp="1595945160136" />
+    <state x="428" y="83" key="RollbackChangesDialog" timestamp="1595863235046">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="428" y="83" key="RollbackChangesDialog/0.0.1280.760@0.0.1280.760" timestamp="1595863235046" />
+    <state x="448" y="294" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595948681567">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="448" y="294" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.760@0.0.1280.760" timestamp="1595948681567" />
   </component>
 </project>

@@ -364,7 +364,7 @@ button:focus, input:focus, select:focus, textarea:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 40px;
+    padding-bottom: 50px;
     overflow-y: auto;
 }
 
@@ -388,12 +388,15 @@ button:focus, input:focus, select:focus, textarea:focus {
     font-size: 18px;
     margin: 0 20px 11px;
 }
-.small-navigation a:first-child{
-    color:#9DAFBD;
+
+.small-navigation a:first-child {
+    color: #9DAFBD;
 }
-.small-navigation span{
-    color:#9DAFBD;
+
+.small-navigation span {
+    color: #9DAFBD;
 }
+
 .small-navigation > * {
     margin-right: 5px;
 }
@@ -626,7 +629,7 @@ button:focus, input:focus, select:focus, textarea:focus {
 }
 
 .name-form {
-    margin: 20px 0px;
+    margin: 20px 0;
     width: 520px;
     display: flex;
     justify-content: space-between;
@@ -731,11 +734,13 @@ button:focus, input:focus, select:focus, textarea:focus {
 .close-button > img {
     width: 20px;
 }
+
 .close-button:focus {
     outline: 0;
     box-shadow: none;
     transition: none;
 }
+
 .presentation-title {
     color: #10A1FF;
     font-size: 24px;
@@ -846,7 +851,8 @@ button:focus, input:focus, select:focus, textarea:focus {
 .coming-message-button:hover .coming-text {
     visibility: visible;
 }
-.privacy-policy{
+
+.privacy-policy {
     display: flex;
     flex-direction: row;
     position: fixed;
@@ -855,14 +861,23 @@ button:focus, input:focus, select:focus, textarea:focus {
 
 
 }
-.privacy-policy .pp-link{
-text-decoration: none;
+
+.privacy-policy .pp-link {
+    text-decoration: none;
     color: #109fff;
     font-size: 16px;
 }
-.pp-link:hover{
+
+.pp-link:hover {
     color: #109fff;
     opacity: 0.8;
+}
+
+.divide-span {
+    color: #09131B;
+    margin: 0 5px;
+    font-weight: 900;
+    opacity: 0.6;
 }
 
 @media screen and ( max-width: 1480px ) {
@@ -900,21 +915,26 @@ text-decoration: none;
         padding: 0;
     }
 }
-
 @media screen and ( max-height: 800px ) {
     .button-menu {
-        padding: 20px 10px;
+        padding: 15px 10px;
+    }
+    .icon-menu {
+        width: 26px;
+        height: 26px;}
+
+    .small-navigation {
+        margin: 0 20px 5px;
     }
 
     .search {
-        padding: 20px 0 15px;
+        padding: 15px 0 11px;
     }
 
     .template-item {
         padding: 0;
     }
 }
-
 @media screen and ( max-width: 960px ) {
     .header-content {
         padding: 0 20px;
