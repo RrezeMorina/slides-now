@@ -231,7 +231,7 @@ function initializeStage() {
 }
 function getTemplates(keyword) {
     initializeStage();
-    var url = _BASEURL + "Fsnow/template?allrows=true&orderby=Order";
+    var url = _BASEURL + "slidesnow/template?allrows=true&orderby=Order";
     var where = "Code.Contains(\"" + keyword + "\") OR Name.Contains(\"" + keyword + "\") OR Description.Contains(\"" + keyword + "\")";
     url += "&Where=" + where;
     $.ajax({
