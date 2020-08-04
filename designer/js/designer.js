@@ -32,14 +32,16 @@ function subscribe() {
     }
 }
 function closeSubscribeDialog() {
+    var isSubscribed = localStorage.getItem('subscribed');
+    if (isSubscribed !== 'true') {
+        localStorage.setItem('subscribed', 'true');
+    }
     $(subscribeDialog).css("display", "none");
 }
 (function showDialog() {
-    // uncomment lines below to stop showing subscribed popup-dialog after client is subscribed
     var isSubscribed = localStorage.getItem('subscribed');
     if (isSubscribed === 'true') {
         $(subscribeDialog).css("display", "none");
-        console.log("test")
     } else {
         $(subscribeDialog).css("display", "flex");
     }
