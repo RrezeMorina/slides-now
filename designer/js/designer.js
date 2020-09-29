@@ -48,7 +48,7 @@ function closeSubscribeDialog() {
 })()
 
 //ADDED
-var _BASEURL = "https://firmsconsultingapi.azurewebsites.net/api/";
+var _BASEURL = "http://116.203.179.177/fcapi/api/";
 var _TOKEN = null;
 var _STAGE = null;
 var _LAYER = null;
