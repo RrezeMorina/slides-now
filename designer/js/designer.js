@@ -2,7 +2,6 @@
 var sideNavExpand = $("#sidenav-expand");
 var designerContainer = $("#designer-container");
 var subscribeDialog = $("#subscribe-dialog");
-
 function openSideNav() {
     sideNavExpand.removeClass("sidenav-hidden");
     sideNavExpand.addClass("sidenav-show");
@@ -46,7 +45,6 @@ function closeSubscribeDialog() {
         $(subscribeDialog).css("display", "flex");
     }
 })()
-
 //ADDED
 var _BASEURL = "http://116.203.179.177/fcapi/api/";
 var _TOKEN = null;
@@ -626,7 +624,7 @@ function downloadPng() {
     var dataURL = stageClone.toDataURL({ pixelRatio: 1 });
     stageClone.destroy();
     var link = document.createElement('a');
-    link.download = "canvas.png";
+    link.download = $(".presentation-title").text() + " " + $(".presentation-title-slide").text() + ".png";
     link.href = dataURL;
     document.body.appendChild(link);
     link.click();
@@ -642,14 +640,45 @@ function downloadPdf() {
     stageClone.scaleX(1);
     stageClone.scaleY(1);
     var dataURL = stageClone.toDataURL({ pixelRatio: 1 });
-    var format = "l";
-    if (stageClone.width() <= stageClone.height()) {
-        format = "p";
-    }
-    var pdf = new jsPDF(format, "px", [stageClone.width(), stageClone.height()]);
-    pdf.addImage(dataURL, 0, 0, stageClone.width(), stageClone.height());
     stageClone.destroy();
-    pdf.save('canvas.pdf');
+    var model = { Content: dataURL };
+    $.ajax({
+        url: _BASEURL + "slidesnow/image/convertpngtopdf",
+        type: "POST",
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify(model),
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + _TOKEN);
+        },
+        success: function (data, textStatus, jQxhr) {
+            var sampleArr = base64ToArrayBuffer(data);
+            saveByteArray($(".presentation-title").text() + " " + $(".presentation-title-slide").text() + ".pdf", sampleArr);
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+}
+//https://stackoverflow.com/questions/35038884/download-file-from-bytes-in-javascript
+function base64ToArrayBuffer(base64) {
+    var binaryString = window.atob(base64);
+    var binaryLen = binaryString.length;
+    var bytes = new Uint8Array(binaryLen);
+    for (var i = 0; i < binaryLen; i++) {
+        var ascii = binaryString.charCodeAt(i);
+        bytes[i] = ascii;
+    }
+    return bytes;
+}
+//https://stackoverflow.com/questions/35038884/download-file-from-bytes-in-javascript
+function saveByteArray(reportName, byte) {
+    var blob = new Blob([byte], { type: "application/pdf" });
+    var link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    var fileName = reportName;
+    link.download = fileName;
+    link.click();
 }
 $(document).ready(function () {
     $.ajax({
